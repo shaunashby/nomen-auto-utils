@@ -3,6 +3,11 @@ package main
 import "fmt"
 import "github.com/go-redis/redis"
 
+// The init function.
+func init() {
+	fmt.Print("I am very please to be initializing, for your delight\n")
+}
+
 // Function to reset the cache when we start afresh.
 func resetCache(rclient *redis.Client) {
 	if rclient.LLen(devFuncKey).Val() == 0 {
