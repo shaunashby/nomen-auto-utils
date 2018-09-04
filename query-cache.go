@@ -36,14 +36,13 @@ func main() {
 
 	// Check to see if the list of device functions is already cached. If not,
 	// add the values of the device functions to the cache key:
-	if rclient.LLen(devFuncKey).Val() == 0 {
-		fmt.Println("Populating device function cache item:")
-		ff := []string{"ml", "se", "db", "px", "ad", "fw"}
-		for f := range ff {
-			fmt.Printf("- Caching device function tag %s\n", ff[f])
-			rclient.LPush(devFuncKey, ff[f])
-		}
+	fmt.Println("Populating device function cache item:")
+	ff := []string{"ml", "se", "db", "px", "ad", "fw", "fs", "as", "vo", "mn", "bk", "ns", "cf", "mq", "wb"}
+	for f := range ff {
+		fmt.Printf("- Caching device function tag %s\n", ff[f])
+		rclient.LPush(devFuncKey, ff[f])
 	}
+
 	fmt.Printf("Length of deviceFunction list: %d\n", rclient.LLen(devFuncKey).Val())
 
 	// Clean out the cache at the end:
