@@ -20,8 +20,11 @@ func resetCache(rclient *redis.Client) {
 	}
 }
 
+// The name of the cache key.
 const devFuncKey = "DeviceFunction"
-const startAfresh = false
+
+// Whether the cache should be preserved or zeroed for the next use.
+const cachePreserve = false
 
 func main() {
 
@@ -30,10 +33,6 @@ func main() {
 		Password: "",
 		DB:       0,
 	})
-
-	if startAfresh == true {
-		resetCache(rclient)
-	}
 
 	// Check to see if the list of device functions is already cached. If not,
 	// add the values of the device functions to the cache key:
@@ -46,4 +45,9 @@ func main() {
 		}
 	}
 	fmt.Printf("Length of deviceFunction list: %d\n", rclient.LLen(devFuncKey).Val())
+
+	// Clean out the cache at the end:
+	if cachePreserve == false {
+		resetCache(rclient)
+	}
 }
