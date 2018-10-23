@@ -5,7 +5,7 @@ import "github.com/go-redis/redis"
 
 // The init function.
 func init() {
-	fmt.Print("I am very please to be initializing, for your delight\n")
+	fmt.Print("I am very pleased to be initializing, for your delight - deep joy!\n")
 }
 
 // Function to reset the cache when we start afresh.
@@ -27,7 +27,7 @@ const devFuncKey = "DeviceFunction"
 const cachePreserve = false
 
 func main() {
-
+	// Connect to Redis cache layer:
 	rclient := redis.NewClient(&redis.Options{
 		Addr:     "localhost:32525",
 		Password: "",
