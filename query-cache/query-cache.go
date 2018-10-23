@@ -49,4 +49,10 @@ func main() {
 	if cachePreserve == false {
 		resetCache(rclient)
 	}
+	// Somewhere here we have to handle the payload which will have been
+	// passed in a query parameter: the payload will probably contain some
+	// information which will come from e.g, metadata for provisioning, which
+	// can be use to determine which device function is most appropriate for
+	// the host we want to create
+
 }
