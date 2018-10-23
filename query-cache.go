@@ -40,7 +40,7 @@ func main() {
 	ff := []string{"ml", "se", "db", "px", "ad", "fw", "fs", "as", "vo", "mn", "bk", "ns", "cf", "mq", "wb"}
 	for f := range ff {
 		fmt.Printf("- Caching device function tag %s\n", ff[f])
-		rclient.LPush(devFuncKey, ff[f])
+		rclient.RPush(devFuncKey, ff[f])
 	}
 
 	fmt.Printf("Length of deviceFunction list: %d\n", rclient.LLen(devFuncKey).Val())
